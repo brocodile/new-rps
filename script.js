@@ -53,11 +53,9 @@ function playRound(humanChoice, computerChoice){
 }
 
 function playGame(){
-    for(let i = 0; i < 5; i++){
-        let hmc = getHumanChoice();
-        let cmc = getComputerChoice();
-        playRound(hmc, cmc);
-    }
+    let hmc = getHumanChoice();
+    let cmc = getComputerChoice();
+    playRound(hmc, cmc);
     console.log("\n");
     console.log("Final Scores: ");
     console.log("Human: " + humanScore);
@@ -74,4 +72,36 @@ function playGame(){
 let humanScore = 0;
 let computerScore = 0;
 
-playGame();
+// playGame();
+
+const rock = document.createElement('button');
+rock.textContent = "rock";
+const paper = document.createElement('button');
+paper.textContent = "paper";
+const scissor = document.createElement('button');
+scissor.textContent = "scissor";
+
+// let buttonArray = document.querySelectorAll('button');
+const container = document.querySelector('#container');
+
+container.appendChild(rock);
+container.appendChild(paper);
+container.appendChild(scissor);
+
+// rock.addEventListener("click", () => {
+//     playRound("rock", getComputerChoice());
+// });
+// paper.addEventListener("click", () => {
+//     playRound("paper", getComputerChoice());
+// });
+// scissor.addEventListener("click", () => {
+//     playRound("scissor", getComputerChoice());
+// });
+
+const buttons = [rock, paper, scissor];
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    playRound(button.textContent, getComputerChoice());
+  });
+});
