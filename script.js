@@ -70,6 +70,15 @@ function playGame(hmc){
         rock.disabled = true;
         paper.disabled = true;
         scissor.disabled = true;
+
+        const playAgain = document.createElement('button');
+        playAgain.textContent = "Play Again?";
+        playAgain.setAttribute("id", "playagain");
+        body.appendChild(playAgain);
+        playAgain.addEventListener("click", () => {
+            location.reload();
+        })
+
     }
 }
 
@@ -101,3 +110,5 @@ const cscore = document.querySelector("#cscore");
 hscore.textContent = 0;
 cscore.textContent = 0;
 var rounds = 0;
+
+const body = document.querySelector("body")
