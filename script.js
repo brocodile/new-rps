@@ -9,11 +9,11 @@ function getHumanChoice(){
 }
 
 function computerWins(){
-    console.log("Computer Wins");
+    // console.log("Computer Wins");
     cscore.textContent++;
 }
 function humanWins(){
-    console.log("Human Wins");
+    // console.log("Human Wins");
     hscore.textContent++;
 }
 
@@ -21,33 +21,35 @@ function playRound(humanChoice, computerChoice){
     humanChoice = humanChoice.toLowerCase();
 
     if (humanChoice === computerChoice){
-        console.log("Game Tie: No Winner");
+        result.textContent = "Game Tie: No Winner";
+        computerWins();
+        humanWins(); 
     }
     else if(humanChoice === 'rock'){
         if (computerChoice === 'paper'){
             computerWins();
-            console.log("Paper Beats Rock");
+            result.textContent = "Paper Beats Rock";
         }else{
             humanWins();
-            console.log("Rock Beats Scissor");
+            result.textContent = "Rock Beats Scissor";
         }
     }
     else if(humanChoice === 'paper'){
         if (computerChoice === 'rock'){
             humanWins();
-            console.log("Paper Beats Rock");
+            result.textContent = "Paper Beats Rock";
         }else{
             computerWins();
-            console.log("Scissor Beats Paper");
+            result.textContent = "Scissor Beats Paper";
         }
     }
     else{
         if (computerChoice === 'rock'){
             computerWins();
-            console.log("Rock Beats Scissor");
+            result.textContent = "Rock Beats Scissor";
         }else{
             humanWins();
-            console.log("Scissor Beats Paper");
+            result.textContent = "Scissor Beats Paper";
         }
     }
 }
@@ -57,7 +59,7 @@ function playGame(hmc){
     let cmc = getComputerChoice();
     playRound(hmc, cmc);
     rounds++;
-    if(rounds === 5){
+    if(hscore.textContent == 5 || cscore.textContent == 5){
         if (hscore.textContent == cscore.textContent){
             result.textContent = "Game Draw";
         }else if(hscore.textContent > cscore.textContent){
