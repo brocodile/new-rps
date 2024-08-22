@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissor</title>
     <script src="./script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1>Rock Paper Scissor</h1>
     <div id="container">
         <button id="rock">rock</button>
         <button id="paper">paper</button>
         <button id="scissor">scissor</button>
+    </div>
+    <div id="live">
+        <div class="center">Live Score</div>
+        <table>
+            <tr>
+                <td>Human</td>
+                <td>Computer</td>
+            </tr>
+            <tr>
+                <td id="hscore">0</td>
+                <td id="cscore">0</td>
+            </tr>
+        </table>
     </div>
     <div id="result"></div>
 </body>
