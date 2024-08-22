@@ -67,6 +67,9 @@ function playGame(hmc){
         }else{
             result.textContent = "Computer Wins";
         }
+        rock.disabled = true;
+        paper.disabled = true;
+        scissor.disabled = true;
     }
 }
 
