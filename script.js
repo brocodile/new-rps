@@ -10,11 +10,11 @@ function getHumanChoice(){
 
 function computerWins(){
     console.log("Computer Wins");
-    computerScore++;
+    cscore.textContent++;
 }
 function humanWins(){
     console.log("Human Wins");
-    humanScore++;
+    hscore.textContent++;
 }
 
 function playRound(humanChoice, computerChoice){
@@ -52,25 +52,24 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-function playGame(){
-    let hmc = getHumanChoice();
+function playGame(hmc){
+    // let hmc = getHumanChoice();
     let cmc = getComputerChoice();
     playRound(hmc, cmc);
-    console.log("\n");
-    console.log("Final Scores: ");
-    console.log("Human: " + humanScore);
-    console.log("Computer: "+ computerScore);
-    if (humanScore == computerScore){
-        console.log("Game Draw");
-    }else if(humanScore > computerScore){
-        console.log("Human Wins");
-    }else{
-        console.log("Computer Wins");
+    rounds++;
+    if(rounds === 5){
+        if (hscore.textContent == cscore.textContent){
+            result.textContent = "Game Draw";
+        }else if(hscore.textContent > cscore.textContent){
+            result.textContent = "Human Wins";
+        }else{
+            result.textContent = "Computer Wins";
+        }
     }
 }
 
-let humanScore = 0;
-let computerScore = 0;
+// let humanScore = 0;
+// let computerScore = 0;
 
 // playGame();
 
@@ -86,6 +85,14 @@ const buttons = [rock, paper, scissor];
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    playRound(button.textContent, getComputerChoice());
+    playGame(button.textContent);
   });
 });
+
+const result = document.querySelector("#result");
+const hscore = document.querySelector("#hscore");
+const cscore = document.querySelector("#cscore");
+
+hscore.textContent = 0;
+cscore.textContent = 0;
+var rounds = 0;
