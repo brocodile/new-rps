@@ -74,29 +74,13 @@ let computerScore = 0;
 
 // playGame();
 
-const rock = document.createElement('button');
-rock.textContent = "rock";
-const paper = document.createElement('button');
-paper.textContent = "paper";
-const scissor = document.createElement('button');
-scissor.textContent = "scissor";
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissor = document.querySelector('#scissor');
 
 // let buttonArray = document.querySelectorAll('button');
 const container = document.querySelector('#container');
 
-container.appendChild(rock);
-container.appendChild(paper);
-container.appendChild(scissor);
-
-// rock.addEventListener("click", () => {
-//     playRound("rock", getComputerChoice());
-// });
-// paper.addEventListener("click", () => {
-//     playRound("paper", getComputerChoice());
-// });
-// scissor.addEventListener("click", () => {
-//     playRound("scissor", getComputerChoice());
-// });
 
 const buttons = [rock, paper, scissor];
 
